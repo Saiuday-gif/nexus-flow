@@ -1,0 +1,17 @@
+// 1. Generator - This section specifies the Prisma Client generator, which will generate a type-safe client for our database operations. The provider "prisma-client-js" indicates that we want to use the JavaScript version of the Prisma Client.
+generator client {
+  provider = "prisma-client-js"
+}
+
+// 2. Datasource - Here we define our database connection. In this case, we are using SQLite for simplicity. You can switch to PostgreSQL or MySQL by changing the provider and adding the appropriate connection URL.
+datasource db {
+  provider = "sqlite"
+}
+
+// 3. User Model - This model defines the structure of the User table in our database. It includes an auto-incrementing integer ID, a unique email field, an optional name field, and a createdAt timestamp that defaults to the current time when a new user is created.
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  name      String?
+  createdAt DateTime @default(now())
+}
