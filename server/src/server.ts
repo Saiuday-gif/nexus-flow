@@ -86,7 +86,10 @@ app.get('/api/admin/contacts', async (req, res) => {
     res.status(500).json({ success: false, message: error.message });
   }
 });
+app.get('/', (req, res) => {
+  res.send('<h1>Welcome to NexusFlow Backend Server!</h1><p>The API is running successfully.</p>');
 
+});
 // Initialize Express Server Listening Instance
 app.listen(PORT, () => {
   console.log(`Server running successfully on port ${PORT}`);
